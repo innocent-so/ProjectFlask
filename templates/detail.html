@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <h1>
+        Countries, Population, and Land Usage
+    </h1>
+    <div class="container">
+        Country | Population | Population_density | Land_area | Energy_consumption
+        {% for country in countries %}
+        <hr>
+        {{country['name']}} | {{country['population']}} | {{country['population_density']}} | {{country['land_area']}} | {{country['energy_consumption']}}
+        <a href="{{ url_for(''livestock_list, country_id=country['id'])}}" class="btn btn-secondary">Livestocks</a>
+        {% endfor %}
+    </div>
+{% endblock %}
